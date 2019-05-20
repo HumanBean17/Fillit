@@ -4,7 +4,7 @@ void		ft_print(char **matrix, int count)
 {
 	for (int i = 0; i < count; i++)
 		printf("%s\n", matrix[i]);
-	//printf("\n");
+	printf("\n");
 }
 
 void		ft_list_print(list **head)
@@ -14,10 +14,10 @@ void		ft_list_print(list **head)
 	tmp = *head;
 	while (tmp)
 	{
-		printf("%c\n", tmp->letter);
+		printf("%c\nx = ", tmp->letter);
 		for (int i = 0; i < 4; i++)
 			printf("%d ", tmp->x[i]);
-		printf("\n");
+		printf("\ny = ");
 		for (int i = 0; i < 4; i++)
 			printf("%d ", tmp->y[i]);
 		printf("\n");
@@ -100,6 +100,20 @@ int 	ft_find_max(const int *ar)
 	return (max);
 }
 
+void	ft_swap_2(list *alst)
+{
+	list *tmp;
+	int i;
+
+	i = 0;
+	tmp = alst;
+	while (i < 4)
+	{
+		(tmp->x)[i] -= 1;
+		i++;
+	}
+}
+
 void	ft_swap(list *alst)
 {
 	int		i;
@@ -117,6 +131,104 @@ void	ft_swap(list *alst)
 		(tmp->y)[i] -= y_min;
 		i++;
 	}
+	x_min = 0;
+	i = 0;
+	while (i < 4)
+	{
+		if ((tmp->x)[i] == 0 && (tmp->y)[i] == 0)
+			x_min = 1;
+		i++;
+	}
+	if (x_min == 0)
+		ft_swap_2(alst);
+}
+
+void	ft_kostyl_set(char **field, list *alst, int x_begin, int y_begin)
+{
+	int 	i;
+	list 	*tmp;
+
+	i = 0;
+	tmp = alst;
+	while (i < 4)
+	{
+		field[(tmp->y)[i] + y_begin][(tmp->x)[i] + x_begin] = '1';
+		i++;
+	}
+}
+
+void	ft_adskiy_kostyl(char **field, int count, list *alst)
+{
+	int i;
+	int j;
+
+	i = 0;
+	while (i < count)
+	{
+		j = 0;
+		while (j < count)
+		{
+			if (field[i][j] == '.')
+			{
+				if ((j + ft_find_min(alst->x)) < count && (i + ft_find_max(alst->y)) < count)
+				{
+					if (ft_is_dots(field, alst, j, i) == 1)
+					{
+						ft_kostyl_set(field, alst, j, i);
+						return ;
+					}
+				}
+				else if ((i + ft_find_max(alst->y)) > count)
+				{
+					return ;
+				}
+			}
+			j++;
+		}
+		i++;
+	}
+	return ;
+}
+
+void	ft_dot_field(list *tmp, char **field, int count)
+{
+	int c;
+	int i;
+	int j;
+
+	c = 0;
+	i = 0;
+	while (i < count)
+	{
+		j = 0;
+		while (j < count)
+		{
+			if (field[i][j] == tmp->letter)
+			{
+				c++;
+				field[i][j] = '.';
+			}
+			if (c >= 4)
+				return ;
+			j++;
+		}
+		i++;
+	}
+}
+
+list	*ft_return_prev(list **alst, list *to_find)
+{
+	list *tmp;
+
+	tmp = *alst;
+	if (tmp->letter == to_find->letter)
+		return (NULL);
+	while (tmp && (tmp->next != to_find)) {
+		printf("%c -> ", tmp->letter);
+		tmp = tmp->next;
+	}
+	printf("\n");
+	return (tmp);
 }
 
 void 	ft_push_list(list **alst, int l, char **matrix)
@@ -152,6 +264,7 @@ void	ft_del_matrix(char **matrix, int count)
 			i++;
 		}
 		free(matrix);
+		*matrix = NULL;
 	}
 }
 
