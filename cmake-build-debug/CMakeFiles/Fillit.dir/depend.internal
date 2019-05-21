@@ -195,6 +195,11 @@ CMakeFiles/Fillit.dir/src/additional.c.o
  ../header/get_next_line.h
  ../header/libft.h
  /Users/lcrawn/Fillit/src/additional.c
+CMakeFiles/Fillit.dir/src/create_list_func.c.o
+ ../header/fillit.h
+ ../header/get_next_line.h
+ ../header/libft.h
+ /Users/lcrawn/Fillit/src/create_list_func.c
 CMakeFiles/Fillit.dir/src/fillit.c.o
  ../header/fillit.h
  ../header/get_next_line.h
@@ -204,6 +209,11 @@ CMakeFiles/Fillit.dir/src/get_next_line.c.o
  ../header/get_next_line.h
  ../header/libft.h
  /Users/lcrawn/Fillit/src/get_next_line.c
+CMakeFiles/Fillit.dir/src/print.c.o
+ ../header/fillit.h
+ ../header/get_next_line.h
+ ../header/libft.h
+ /Users/lcrawn/Fillit/src/print.c
 CMakeFiles/Fillit.dir/src/validation.c.o
  ../header/fillit.h
  ../header/get_next_line.h

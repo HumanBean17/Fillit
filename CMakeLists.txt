@@ -75,4 +75,7 @@ add_executable(Fillit
         libft/ft_toupper.c
         libft/libft.h
         src/fillit.c
-        src/get_next_line.c src/validation.c src/additional.c)
+        src/create_list_func.c
+        src/validation.c
+        src/additional.c
+        src/get_next_line.c src/validation.c src/additional.c src/create_list_func.c src/print.c)

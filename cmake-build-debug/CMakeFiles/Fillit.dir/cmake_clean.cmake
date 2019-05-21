@@ -63,9 +63,11 @@ file(REMOVE_RECURSE
   "CMakeFiles/Fillit.dir/libft/ft_tolower.c.o"
   "CMakeFiles/Fillit.dir/libft/ft_toupper.c.o"
   "CMakeFiles/Fillit.dir/src/fillit.c.o"
-  "CMakeFiles/Fillit.dir/src/get_next_line.c.o"
+  "CMakeFiles/Fillit.dir/src/create_list_func.c.o"
   "CMakeFiles/Fillit.dir/src/validation.c.o"
   "CMakeFiles/Fillit.dir/src/additional.c.o"
+  "CMakeFiles/Fillit.dir/src/get_next_line.c.o"
+  "CMakeFiles/Fillit.dir/src/print.c.o"
   "Fillit.pdb"
   "Fillit"
 )

@@ -889,18 +889,18 @@ CMakeFiles/Fillit.dir/src/fillit.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Fillit.dir/src/fillit.c.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/lcrawn/Fillit/src/fillit.c -o CMakeFiles/Fillit.dir/src/fillit.c.s
 
-CMakeFiles/Fillit.dir/src/get_next_line.c.o: CMakeFiles/Fillit.dir/flags.make
-CMakeFiles/Fillit.dir/src/get_next_line.c.o: ../src/get_next_line.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/lcrawn/Fillit/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Building C object CMakeFiles/Fillit.dir/src/get_next_line.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Fillit.dir/src/get_next_line.c.o   -c /Users/lcrawn/Fillit/src/get_next_line.c
+CMakeFiles/Fillit.dir/src/create_list_func.c.o: CMakeFiles/Fillit.dir/flags.make
+CMakeFiles/Fillit.dir/src/create_list_func.c.o: ../src/create_list_func.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/lcrawn/Fillit/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Building C object CMakeFiles/Fillit.dir/src/create_list_func.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Fillit.dir/src/create_list_func.c.o   -c /Users/lcrawn/Fillit/src/create_list_func.c
 
-CMakeFiles/Fillit.dir/src/get_next_line.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Fillit.dir/src/get_next_line.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/lcrawn/Fillit/src/get_next_line.c > CMakeFiles/Fillit.dir/src/get_next_line.c.i
+CMakeFiles/Fillit.dir/src/create_list_func.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Fillit.dir/src/create_list_func.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/lcrawn/Fillit/src/create_list_func.c > CMakeFiles/Fillit.dir/src/create_list_func.c.i
 
-CMakeFiles/Fillit.dir/src/get_next_line.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Fillit.dir/src/get_next_line.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/lcrawn/Fillit/src/get_next_line.c -o CMakeFiles/Fillit.dir/src/get_next_line.c.s
+CMakeFiles/Fillit.dir/src/create_list_func.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Fillit.dir/src/create_list_func.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/lcrawn/Fillit/src/create_list_func.c -o CMakeFiles/Fillit.dir/src/create_list_func.c.s
 
 CMakeFiles/Fillit.dir/src/validation.c.o: CMakeFiles/Fillit.dir/flags.make
 CMakeFiles/Fillit.dir/src/validation.c.o: ../src/validation.c
@@ -927,6 +927,32 @@ CMakeFiles/Fillit.dir/src/additional.c.i: cmake_force
 CMakeFiles/Fillit.dir/src/additional.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Fillit.dir/src/additional.c.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/lcrawn/Fillit/src/additional.c -o CMakeFiles/Fillit.dir/src/additional.c.s
+
+CMakeFiles/Fillit.dir/src/get_next_line.c.o: CMakeFiles/Fillit.dir/flags.make
+CMakeFiles/Fillit.dir/src/get_next_line.c.o: ../src/get_next_line.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/lcrawn/Fillit/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Building C object CMakeFiles/Fillit.dir/src/get_next_line.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Fillit.dir/src/get_next_line.c.o   -c /Users/lcrawn/Fillit/src/get_next_line.c
+
+CMakeFiles/Fillit.dir/src/get_next_line.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Fillit.dir/src/get_next_line.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/lcrawn/Fillit/src/get_next_line.c > CMakeFiles/Fillit.dir/src/get_next_line.c.i
+
+CMakeFiles/Fillit.dir/src/get_next_line.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Fillit.dir/src/get_next_line.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/lcrawn/Fillit/src/get_next_line.c -o CMakeFiles/Fillit.dir/src/get_next_line.c.s
+
+CMakeFiles/Fillit.dir/src/print.c.o: CMakeFiles/Fillit.dir/flags.make
+CMakeFiles/Fillit.dir/src/print.c.o: ../src/print.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/lcrawn/Fillit/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_69) "Building C object CMakeFiles/Fillit.dir/src/print.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Fillit.dir/src/print.c.o   -c /Users/lcrawn/Fillit/src/print.c
+
+CMakeFiles/Fillit.dir/src/print.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Fillit.dir/src/print.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/lcrawn/Fillit/src/print.c > CMakeFiles/Fillit.dir/src/print.c.i
+
+CMakeFiles/Fillit.dir/src/print.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Fillit.dir/src/print.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/lcrawn/Fillit/src/print.c -o CMakeFiles/Fillit.dir/src/print.c.s
 
 # Object files for target Fillit
 Fillit_OBJECTS = \
@@ -994,9 +1020,11 @@ Fillit_OBJECTS = \
 "CMakeFiles/Fillit.dir/libft/ft_tolower.c.o" \
 "CMakeFiles/Fillit.dir/libft/ft_toupper.c.o" \
 "CMakeFiles/Fillit.dir/src/fillit.c.o" \
-"CMakeFiles/Fillit.dir/src/get_next_line.c.o" \
+"CMakeFiles/Fillit.dir/src/create_list_func.c.o" \
 "CMakeFiles/Fillit.dir/src/validation.c.o" \
-"CMakeFiles/Fillit.dir/src/additional.c.o"
+"CMakeFiles/Fillit.dir/src/additional.c.o" \
+"CMakeFiles/Fillit.dir/src/get_next_line.c.o" \
+"CMakeFiles/Fillit.dir/src/print.c.o"
 
 # External object files for target Fillit
 Fillit_EXTERNAL_OBJECTS =
@@ -1065,12 +1093,14 @@ Fillit: CMakeFiles/Fillit.dir/libft/ft_strtrim.c.o
 Fillit: CMakeFiles/Fillit.dir/libft/ft_tolower.c.o
 Fillit: CMakeFiles/Fillit.dir/libft/ft_toupper.c.o
 Fillit: CMakeFiles/Fillit.dir/src/fillit.c.o
-Fillit: CMakeFiles/Fillit.dir/src/get_next_line.c.o
+Fillit: CMakeFiles/Fillit.dir/src/create_list_func.c.o
 Fillit: CMakeFiles/Fillit.dir/src/validation.c.o
 Fillit: CMakeFiles/Fillit.dir/src/additional.c.o
+Fillit: CMakeFiles/Fillit.dir/src/get_next_line.c.o
+Fillit: CMakeFiles/Fillit.dir/src/print.c.o
 Fillit: CMakeFiles/Fillit.dir/build.make
 Fillit: CMakeFiles/Fillit.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/lcrawn/Fillit/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Linking C executable Fillit"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/lcrawn/Fillit/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_70) "Linking C executable Fillit"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Fillit.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

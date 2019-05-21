@@ -1851,6 +1851,33 @@ src/additional.c.s:
 	$(MAKE) -f CMakeFiles/Fillit.dir/build.make CMakeFiles/Fillit.dir/src/additional.c.s
 .PHONY : src/additional.c.s
 
+src/create_list_func.o: src/create_list_func.c.o
+
+.PHONY : src/create_list_func.o
+
+# target to build an object file
+src/create_list_func.c.o:
+	$(MAKE) -f CMakeFiles/Fillit.dir/build.make CMakeFiles/Fillit.dir/src/create_list_func.c.o
+.PHONY : src/create_list_func.c.o
+
+src/create_list_func.i: src/create_list_func.c.i
+
+.PHONY : src/create_list_func.i
+
+# target to preprocess a source file
+src/create_list_func.c.i:
+	$(MAKE) -f CMakeFiles/Fillit.dir/build.make CMakeFiles/Fillit.dir/src/create_list_func.c.i
+.PHONY : src/create_list_func.c.i
+
+src/create_list_func.s: src/create_list_func.c.s
+
+.PHONY : src/create_list_func.s
+
+# target to generate assembly for a file
+src/create_list_func.c.s:
+	$(MAKE) -f CMakeFiles/Fillit.dir/build.make CMakeFiles/Fillit.dir/src/create_list_func.c.s
+.PHONY : src/create_list_func.c.s
+
 src/fillit.o: src/fillit.c.o
 
 .PHONY : src/fillit.o
@@ -1904,6 +1931,33 @@ src/get_next_line.s: src/get_next_line.c.s
 src/get_next_line.c.s:
 	$(MAKE) -f CMakeFiles/Fillit.dir/build.make CMakeFiles/Fillit.dir/src/get_next_line.c.s
 .PHONY : src/get_next_line.c.s
+
+src/print.o: src/print.c.o
+
+.PHONY : src/print.o
+
+# target to build an object file
+src/print.c.o:
+	$(MAKE) -f CMakeFiles/Fillit.dir/build.make CMakeFiles/Fillit.dir/src/print.c.o
+.PHONY : src/print.c.o
+
+src/print.i: src/print.c.i
+
+.PHONY : src/print.i
+
+# target to preprocess a source file
+src/print.c.i:
+	$(MAKE) -f CMakeFiles/Fillit.dir/build.make CMakeFiles/Fillit.dir/src/print.c.i
+.PHONY : src/print.c.i
+
+src/print.s: src/print.c.s
+
+.PHONY : src/print.s
+
+# target to generate assembly for a file
+src/print.c.s:
+	$(MAKE) -f CMakeFiles/Fillit.dir/build.make CMakeFiles/Fillit.dir/src/print.c.s
+.PHONY : src/print.c.s
 
 src/validation.o: src/validation.c.o
 
@@ -2133,12 +2187,18 @@ help:
 	@echo "... src/additional.o"
 	@echo "... src/additional.i"
 	@echo "... src/additional.s"
+	@echo "... src/create_list_func.o"
+	@echo "... src/create_list_func.i"
+	@echo "... src/create_list_func.s"
 	@echo "... src/fillit.o"
 	@echo "... src/fillit.i"
 	@echo "... src/fillit.s"
 	@echo "... src/get_next_line.o"
 	@echo "... src/get_next_line.i"
 	@echo "... src/get_next_line.s"
+	@echo "... src/print.o"
+	@echo "... src/print.i"
+	@echo "... src/print.s"
 	@echo "... src/validation.o"
 	@echo "... src/validation.i"
 	@echo "... src/validation.s"

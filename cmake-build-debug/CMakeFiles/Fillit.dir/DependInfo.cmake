@@ -68,8 +68,10 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/lcrawn/Fillit/libft/ft_tolower.c" "/Users/lcrawn/Fillit/cmake-build-debug/CMakeFiles/Fillit.dir/libft/ft_tolower.c.o"
   "/Users/lcrawn/Fillit/libft/ft_toupper.c" "/Users/lcrawn/Fillit/cmake-build-debug/CMakeFiles/Fillit.dir/libft/ft_toupper.c.o"
   "/Users/lcrawn/Fillit/src/additional.c" "/Users/lcrawn/Fillit/cmake-build-debug/CMakeFiles/Fillit.dir/src/additional.c.o"
+  "/Users/lcrawn/Fillit/src/create_list_func.c" "/Users/lcrawn/Fillit/cmake-build-debug/CMakeFiles/Fillit.dir/src/create_list_func.c.o"
   "/Users/lcrawn/Fillit/src/fillit.c" "/Users/lcrawn/Fillit/cmake-build-debug/CMakeFiles/Fillit.dir/src/fillit.c.o"
   "/Users/lcrawn/Fillit/src/get_next_line.c" "/Users/lcrawn/Fillit/cmake-build-debug/CMakeFiles/Fillit.dir/src/get_next_line.c.o"
+  "/Users/lcrawn/Fillit/src/print.c" "/Users/lcrawn/Fillit/cmake-build-debug/CMakeFiles/Fillit.dir/src/print.c.o"
   "/Users/lcrawn/Fillit/src/validation.c" "/Users/lcrawn/Fillit/cmake-build-debug/CMakeFiles/Fillit.dir/src/validation.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")

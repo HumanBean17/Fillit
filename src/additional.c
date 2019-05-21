@@ -1,149 +1,6 @@
 #include "fillit.h"
 
-void		ft_print(char **matrix, int count)
-{
-	for (int i = 0; i < count; i++)
-		printf("%s\n", matrix[i]);
-	printf("\n");
-}
-
-void		ft_list_print(list **head)
-{
-	list *tmp;
-
-	tmp = *head;
-	while (tmp)
-	{
-		printf("%c\nx = ", tmp->letter);
-		for (int i = 0; i < 4; i++)
-			printf("%d ", tmp->x[i]);
-		printf("\ny = ");
-		for (int i = 0; i < 4; i++)
-			printf("%d ", tmp->y[i]);
-		printf("\n");
-		tmp = tmp->next;
-	}
-}
-
-list		*ft_new_elem(int l, char **matrix)
-{
-	list *tmp;
-
-	tmp = (list *)malloc(sizeof(list));
-	if (tmp)
-	{
-		tmp->letter = (char)(l + 65);
-		tmp->x = NULL;
-		tmp->y = NULL;
-		tmp->next = NULL;
-		return (tmp);
-	}
-	return (NULL);
-}
-
-void	ft_fill_elem(list *tmp, char **matrix)
-{
-	int k;
-	int i;
-	int j;
-
-	i = 0;
-	k = 0;
-	tmp->x = (int *)malloc(sizeof(int) * 4);
-	tmp->y = (int *)malloc(sizeof(int) * 4);
-	while (i < 4)
-	{
-		j = 0;
-		while (j < 4)
-		{
-			if (matrix[i][j] != '.')
-			{
-				(tmp->x)[k] = j;
-				(tmp->y)[k] = i;
-				k++;
-			}
-			j++;
-		}
-		i++;
-	}
-}
-
-int 	ft_find_min(const int *ar)
-{
-	int i;
-	int min;
-
-	i = 0;
-	min = ar[0];
-	while (i < 4)
-	{
-		if (ar[i] < min)
-			min = ar[i];
-		i++;
-	}
-	return (min);
-}
-
-int 	ft_find_max(const int *ar)
-{
-	int i;
-	int max;
-
-	i = 0;
-	max = ar[0];
-	while (i < 4)
-	{
-		if (ar[i] > max)
-			max = ar[i];
-		i++;
-	}
-	return (max);
-}
-
-void	ft_swap_2(list *alst)
-{
-	list *tmp;
-	int i;
-
-	i = 0;
-	tmp = alst;
-	while (i < 4)
-	{
-		(tmp->x)[i] -= 1;
-		i++;
-	}
-}
-
-void	ft_swap(list *alst)
-{
-	int		i;
-	list 	*tmp;
-	int 	x_min;
-	int 	y_min;
-
-	i = 0;
-	tmp = alst;
-	x_min = ft_find_min(tmp->x);
-	y_min = ft_find_min(tmp->y);
-	while (i < 4)
-	{
-		(tmp->x)[i] -= x_min;
-		(tmp->y)[i] -= y_min;
-		i++;
-	}
-	x_min = 0;
-	i = 0;
-	while (i < 4)
-	{
-		if ((tmp->x)[i] == 0 && (tmp->y)[i] == 0)
-			x_min = 1;
-		i++;
-	}
-	if (x_min == 0)
-		ft_swap_2(alst);
-}
-
-void	ft_kostyl_set(char **field, list *alst, int x_begin, int y_begin)
+void	ft_set(char **field, list *alst, int x_begin, int y_begin)
 {
 	int 	i;
 	list 	*tmp;
@@ -157,7 +14,7 @@ void	ft_kostyl_set(char **field, list *alst, int x_begin, int y_begin)
 	}
 }
 
-void	ft_adskiy_kostyl(char **field, int count, list *alst)
+void	ft_fill_back(char **field, int count, list *alst)
 {
 	int i;
 	int j;
@@ -168,26 +25,113 @@ void	ft_adskiy_kostyl(char **field, int count, list *alst)
 		j = 0;
 		while (j < count)
 		{
-			if (field[i][j] == '.')
+			if (field[i][j] == '1')
+				field[i][j] = alst->letter;
+			j++;
+		}
+		i++;
+	}
+}
+
+
+int 	ft_are_dots(char **field, list *alst, int j, int i)
+{
+	//ft_list_print(&alst);
+	if ((field[(alst->y)[0] + i][(alst->x)[0] + j] == '.' || field[(alst->y)[0] + i][(alst->x)[0] + j] == '1' || field[(alst->y)[0] + i][(alst->x)[0] + j] == alst->letter) &&
+		(field[(alst->y)[1] + i][(alst->x)[1] + j] == '.' || field[(alst->y)[1] + i][(alst->x)[1] + j] == '1' || field[(alst->y)[0] + i][(alst->x)[0] + j] == alst->letter) &&
+		(field[(alst->y)[2] + i][(alst->x)[2] + j] == '.' || field[(alst->y)[2] + i][(alst->x)[2] + j] == '1' || field[(alst->y)[0] + i][(alst->x)[0] + j] == alst->letter) &&
+		(field[(alst->y)[3] + i][(alst->x)[3] + j] == '.' || field[(alst->y)[3] + i][(alst->x)[3] + j] == '1' || field[(alst->y)[0] + i][(alst->x)[0] + j] == alst->letter))
+		return (1);
+	return (0);
+}
+
+int		ft_fit(list *alst, int count, int i, int j)
+{
+	if (i + (alst->y)[0] < count && i + (alst->y)[1] < count &&
+		i + (alst->y)[2] < count && i + (alst->y)[3] < count &&
+		j + (alst->x)[0] < count && j + (alst->x)[1] < count &&
+		j + (alst->x)[2] < count && j + (alst->x)[3] < count)
+		return (1);
+	return (0);
+}
+
+int 	ft_find_i(list *alst, char **field, int count)
+{
+	int i;
+	int j;
+
+	i = 0;
+	while (i < count)
+	{
+		j = 0;
+		while (j < count)
+		{
+			if (field[i][j] == alst->letter)
+				return (i);
+			j++;
+		}
+		i++;
+	}
+	return (-1);
+}
+
+int 	ft_find_j(list *alst, char **field, int count)
+{
+	int i;
+	int j;
+
+	i = 0;
+	while (i < count)
+	{
+		j = 0;
+		while (j < count)
+		{
+			if (field[i][j] == alst->letter)
+				return (j);
+			j++;
+		}
+		i++;
+	}
+	return (-1);
+}
+
+int		ft_try_set(list *alst, char **field, int count)
+{
+	int i;
+	int j;
+
+	i = ft_find_i(alst, field, count);
+	j = ft_find_j(alst, field, count);
+	if (i < 0)
+		i = 0;
+	if (j < 0)
+		j = 0;
+	printf("FUCKING I = %d FUCKING J = %d\n", i, j);
+	while (i < count)
+	{
+		while (j < count)
+		{
+			if (ft_fit(alst, count, i, j) == 1)
 			{
-				if ((j + ft_find_min(alst->x)) < count && (i + ft_find_max(alst->y)) < count)
+				printf("fit i = %d  j = %d\n", i, j);
+				if (ft_are_dots(field, alst, j, i) == 1)
 				{
-					if (ft_is_dots(field, alst, j, i) == 1)
-					{
-						ft_kostyl_set(field, alst, j, i);
-						return ;
-					}
-				}
-				else if ((i + ft_find_max(alst->y)) > count)
-				{
-					return ;
+					printf("i = %d  j = %d\n", i, j);
+					printf("OK\n");
+					ft_set(field, alst, j, i);
+					ft_print(field, count);
+					ft_dot_field(alst, field, count);
+					ft_print(field, count);
+					ft_fill_back(field, count, alst);
+					ft_print(field, count);
+					return (1);
 				}
 			}
 			j++;
 		}
 		i++;
 	}
-	return ;
+	return (0);
 }
 
 void	ft_dot_field(list *tmp, char **field, int count)
@@ -216,39 +160,17 @@ void	ft_dot_field(list *tmp, char **field, int count)
 	}
 }
 
-list	*ft_return_prev(list **alst, list *to_find)
+list	*ft_return_prev(list *alst, list *to_find)
 {
 	list *tmp;
 
-	tmp = *alst;
+	tmp = alst;
 	if (tmp->letter == to_find->letter)
 		return (NULL);
-	while (tmp && (tmp->next != to_find)) {
-		printf("%c -> ", tmp->letter);
+	while (tmp && ((tmp->next)->letter != to_find->letter))
 		tmp = tmp->next;
-	}
-	printf("\n");
+	//printf("\n");
 	return (tmp);
-}
-
-void 	ft_push_list(list **alst, int l, char **matrix)
-{
-	list 	*tmp;
-
-	tmp = *alst;
-	if (!tmp)
-	{
-		tmp = ft_new_elem(l, matrix);
-		*alst = tmp;
-		ft_fill_elem(tmp, matrix);
-		ft_swap(tmp);
-		return ;
-	}
-	while (tmp->next)
-		tmp = tmp->next;
-	tmp->next = ft_new_elem(l, matrix);
-	ft_fill_elem(tmp->next, matrix);
-	ft_swap(tmp->next);
 }
 
 void	ft_del_matrix(char **matrix, int count)

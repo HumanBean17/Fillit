@@ -288,10 +288,16 @@
 		<Unit filename="/Users/lcrawn/Fillit/src/additional.c">
 			<Option target="Fillit"/>
 		</Unit>
+		<Unit filename="/Users/lcrawn/Fillit/src/create_list_func.c">
+			<Option target="Fillit"/>
+		</Unit>
 		<Unit filename="/Users/lcrawn/Fillit/src/fillit.c">
 			<Option target="Fillit"/>
 		</Unit>
 		<Unit filename="/Users/lcrawn/Fillit/src/get_next_line.c">
+			<Option target="Fillit"/>
+		</Unit>
+		<Unit filename="/Users/lcrawn/Fillit/src/print.c">
 			<Option target="Fillit"/>
 		</Unit>
 		<Unit filename="/Users/lcrawn/Fillit/src/validation.c">

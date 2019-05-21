@@ -94,7 +94,8 @@ int ft_tetromin_save(int fd)
 	if (count != 0 && flag == 1 && matrix[i] == 0)
 	{
 		ft_del_matrix(matrix, 4);
-		ft_fillit(&head, 2, matrix);
+		ft_list_print(&head);
+		ft_fillit(head, head, 2, matrix);
 	}
 	else
 	{
