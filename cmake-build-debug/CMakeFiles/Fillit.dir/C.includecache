@@ -32,7 +32,19 @@ stdio.h
 fillit.h
 /Users/lcrawn/Fillit/src/fillit.h
 
+/Users/lcrawn/Fillit/src/create_list_func.c
+fillit.h
+/Users/lcrawn/Fillit/src/fillit.h
+
 /Users/lcrawn/Fillit/src/fillit.c
+fillit.h
+/Users/lcrawn/Fillit/src/fillit.h
+
+/Users/lcrawn/Fillit/src/print.c
+fillit.h
+/Users/lcrawn/Fillit/src/fillit.h
+
+/Users/lcrawn/Fillit/src/validation.c
 fillit.h
 /Users/lcrawn/Fillit/src/fillit.h
 

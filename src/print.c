@@ -4,7 +4,7 @@ void		ft_print(char **matrix, int count)
 {
 	for (int i = 0; i < count; i++)
 		printf("%s\n", matrix[i]);
-	printf("\n");
+	//printf("\n");
 }
 
 void		ft_list_print(list **head)

@@ -6,7 +6,7 @@
 /*   By: lcrawn <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/18 09:39:51 by lcrawn            #+#    #+#             */
-/*   Updated: 2019/05/21 17:52:58 by lcrawn           ###   ########.fr       */
+/*   Updated: 2019/05/22 10:47:34 by lcrawn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,13 @@
 #include <fcntl.h>
 #include "get_next_line.h"
 
+typedef struct  c_list
+{
+	char 			letter;
+	int 			a[2];
+	struct c_list 	*next;
+}				g_list;
+
 typedef struct 	f_list
 {
 	int 			*x;
@@ -24,12 +31,14 @@ typedef struct 	f_list
 	struct f_list 	*next;
 }				list;
 
-void			ft_fill_back(char **field, int count, list *alst);
+g_list			*ft_find_list(g_list **head, char to_find);
+void			ft_push_list_2(g_list **head, char to_push);
+void			ft_z(char **field, int count);
+void			ft_fill_back(list *alst, char **field, int count);
 int				ft_fit(list *alst, int count, int i, int j);
-void			ft_go_back(char **field, int count, list *alst);
-void			ft_set(char **field, list *alst, int x_begin, int y_begin);
+void			ft_set(list *alst, char **field, int y_begin, int x_begin);
 int				ft_try_set(list *alst, char **field, int count);
-int 			ft_are_dots(char **field, list *alst, int j, int i);
+int 			ft_are_dots(list *alst, char **field, int i, int j);
 void			ft_dot_field(list *tmp, char **field, int count);
 list			*ft_return_prev(list *alst, list *to_find);
 int				ft_fillit(list *head, list *const_head, int count, char **field);
