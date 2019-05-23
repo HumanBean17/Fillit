@@ -59,6 +59,33 @@ void	ft_fill_elem(list *tmp, char **matrix)
 	}
 }
 
+void	ft_swap_2(list **alst)
+{
+	int 	flag;
+	int 	i;
+	list 	*tmp;
+
+	tmp = *alst;
+	i = 0;
+	flag = 0;
+	/*while (i < 4)
+	{
+		if ((tmp->x)[i] == 0 && (tmp->y)[i] == 0)
+			flag = 1;
+		i++;
+	}
+	i = 0;*/
+	while ((tmp->x)[0] != 0)
+	{
+		while (i < 4)
+		{
+			(tmp->x)[i] -= 1;
+			i++;
+		}
+		i = 0;
+	}
+}
+
 void	ft_swap(list **tmp)
 {
 	int		i;
@@ -87,6 +114,7 @@ void 	ft_push_list(list **alst, int l, char **matrix)
 		*alst = tmp;
 		ft_fill_elem(tmp, matrix);
 		ft_swap(&tmp);
+		ft_swap_2(&tmp);
 		return ;
 	}
 	while (tmp->next)
@@ -94,6 +122,7 @@ void 	ft_push_list(list **alst, int l, char **matrix)
 	tmp->next = ft_new_elem(l);
 	ft_fill_elem(tmp->next, matrix);
 	ft_swap(&(tmp->next));
+	ft_swap_2(&(tmp->next));
 }
 
 list		*ft_new_elem(int l)

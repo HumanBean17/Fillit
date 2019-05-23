@@ -37,10 +37,10 @@ void	ft_fill_back(list *alst, char **field, int count)
 int 	ft_are_dots(list *alst, char **field, int i, int j)
 {
 	//ft_list_print(&alst);
-	if ((field[(alst->y)[0] + i][(alst->x)[0] + j] == '.' || field[(alst->y)[0] + i][(alst->x)[0] + j] == ',' || field[(alst->y)[0] + i][(alst->x)[0] + j] == '1' || field[(alst->y)[0] + i][(alst->x)[0] + j] == alst->letter) &&
-		(field[(alst->y)[1] + i][(alst->x)[1] + j] == '.' || field[(alst->y)[1] + i][(alst->x)[1] + j] == ',' || field[(alst->y)[1] + i][(alst->x)[1] + j] == '1' || field[(alst->y)[1] + i][(alst->x)[1] + j] == alst->letter) &&
-		(field[(alst->y)[2] + i][(alst->x)[2] + j] == '.' || field[(alst->y)[2] + i][(alst->x)[2] + j] == ',' || field[(alst->y)[2] + i][(alst->x)[2] + j] == '1' || field[(alst->y)[2] + i][(alst->x)[2] + j] == alst->letter) &&
-		(field[(alst->y)[3] + i][(alst->x)[3] + j] == '.' || field[(alst->y)[3] + i][(alst->x)[3] + j] == ',' || field[(alst->y)[3] + i][(alst->x)[3] + j] == '1' || field[(alst->y)[3] + i][(alst->x)[3] + j] == alst->letter))
+	if ((field[(alst->y)[0] + i][(alst->x)[0] + j] == '.' || field[(alst->y)[0] + i][(alst->x)[0] + j] == '1' || field[(alst->y)[0] + i][(alst->x)[0] + j] == alst->letter) &&
+		(field[(alst->y)[1] + i][(alst->x)[1] + j] == '.' || field[(alst->y)[1] + i][(alst->x)[1] + j] == '1' || field[(alst->y)[1] + i][(alst->x)[1] + j] == alst->letter) &&
+		(field[(alst->y)[2] + i][(alst->x)[2] + j] == '.' || field[(alst->y)[2] + i][(alst->x)[2] + j] == '1' || field[(alst->y)[2] + i][(alst->x)[2] + j] == alst->letter) &&
+		(field[(alst->y)[3] + i][(alst->x)[3] + j] == '.' || field[(alst->y)[3] + i][(alst->x)[3] + j] == '1' || field[(alst->y)[3] + i][(alst->x)[3] + j] == alst->letter))
 		return (1);
 	return (0);
 }
@@ -99,25 +99,6 @@ int 	ft_find_j(list *alst, char **field, int count)
 	return (-1);
 }
 
-void	ft_z(char **field, int count)
-{
-	int i;
-	int j;
-
-	i = 0;
-	while (i < count)
-	{
-		j = 0;
-		while (j < count)
-		{
-			if (field[i][j] == ',')
-				field[i][j] = '.';
-			j++;
-		}
-		i++;
-	}
-}
-
 g_list	*ft_find_list(g_list **head, char to_find)
 {
 	g_list *tmp;
@@ -146,7 +127,7 @@ g_list		*ft_create_elem(char l, int y, int x)
 	return (NULL);
 }
 
-void	ft_push_list_2(g_list **head, char to_push)
+void		ft_push_list_2(g_list **head, char to_push)
 {
 	g_list *tmp;
 
@@ -162,59 +143,113 @@ void	ft_push_list_2(g_list **head, char to_push)
 	tmp->next = ft_create_elem(to_push, 0, 0);
 }
 
-int		ft_try_set(list *alst, char **field, int count)
+void	ft_set_dots(list *tmp, char **field, int count)
+{
+	int i;
+	int j;
+
+	i = 0;
+	while (i < count)
+	{
+		j = 0;
+		while (j < count)
+		{
+			if (field[i][j] == tmp->letter)
+				field[i][j] = '.';
+			j++;
+		}
+		i++;
+	}
+}
+
+int 	ft_count_dots(char **field, int count)
+{
+	int sum;
+	int i;
+	int j;
+
+	i = 0;
+	sum = 0;
+	while (i < count)
+	{
+		j = 0;
+		while (j < count)
+		{
+			if (field[i][j] == '.')
+				sum++;
+			j++;
+		}
+		i++;
+	}
+	if (sum > 4)
+		return (1);
+	return (0);
+}
+
+void	ft_set_zero(g_list **alst)
+{
+	g_list *tmp;
+
+	tmp = *alst;
+	if (tmp) {
+		while (tmp) {
+			(tmp->a)[0] = 0;
+			(tmp->a)[1] = 0;
+			tmp = tmp->next;
+		}
+	}
+}
+
+int		ft_try_set(list *alst, char **field, int count, int flag)
 {
 	g_list			*tmp;
 	static g_list	*a;
 	int 			i;
 	int 			j;
 
-	tmp = ft_find_list(&a, alst->letter);
-	if (tmp == NULL)
-		ft_push_list_2(&a, alst->letter);
-	tmp = ft_find_list(&a, alst->letter);
-	//printf("%d %d %c\n", (tmp->a)[0], (tmp->a)[1], tmp->letter);
-	/*field[0][0] = ',';
-	ft_set(alst, field, 0, 0);
-	ft_dot_field(alst, field, count);
-	ft_fill_back(alst, field, count);
-	i = 0;
-	j = 1;
-	if (field[i][j] == '.' && ft_fit(alst, count, i, j) == 1 && ft_are_dots(alst, field, i, j) == 1)
-		ft_set(alst, field, i, j);*/
-	/*i = ft_find_i(alst, field, count);
-	j = ft_find_j(alst, field, count);
-	if (i < 0)
-		i = 0;
-	if (j < 0)
-		j = 0;*/
-	i = (tmp->a)[0];
-	j = (tmp->a)[1];
-	//printf("I = %d J = %d\n", i, j);
-	while (i < count)
-	{
-		while (j < count)
-		{
-			if ((field[i][j] == '.' || field[i][j] == alst->letter) && ft_fit(alst, count, i, j) == 1 && ft_are_dots(alst, field, i, j) == 1)
-			{
-				//printf("i = %d  j = %d\n", i, j);
-				//printf("OK\n");
-				ft_set(alst, field, i, j);
-				ft_dot_field(alst, field, count);
-				ft_fill_back(alst, field, count);
-				(tmp->a)[0] = i;
-				(tmp->a)[1] = j;
- 				if (j + 1 < count)
-					(tmp->a)[1] += 1;
-				return (1);
+	if (flag == 1) {
+		tmp = ft_find_list(&a, alst->letter);
+		if (tmp == NULL)
+			ft_push_list_2(&a, alst->letter);
+		tmp = ft_find_list(&a, alst->letter);
+		i = (tmp->a)[0];
+		j = (tmp->a)[1];
+		//printf("I = %d J = %d\n", i, j);
+		while (i < count) {
+			while (j < count) {
+				if ((field[i][j] == '.' || field[i][j] == alst->letter) && ft_fit(alst, count, i, j) == 1 &&
+					ft_are_dots(alst, field, i, j) == 1) {
+					//printf("i = %d  j = %d\n", i, j);
+					//printf("OK\n");
+					ft_set(alst, field, i, j);
+					ft_dot_field(alst, field, count);
+					ft_fill_back(alst, field, count);
+					(tmp->a)[0] = i;
+					(tmp->a)[1] = j;
+					if (j + 1 < count)
+						(tmp->a)[1] += 1;
+					else if (i + 1 < count) {
+						(tmp->a)[1] = 0;
+						(tmp->a)[0] += 1;
+					}
+					return (1);
+				}
+				j++;
 			}
-			j++;
+			j = 0;
+			i++;
 		}
-		j = 0;
-		i++;
+		ft_set_dots(alst, field, count);
+		(tmp->a)[0] = 0;
+		(tmp->a)[1] = 0;
+		//printf("return 0\n");
+		return (0);
 	}
-	//printf("return 0\n");
-	return (0);
+	else
+	{
+		ft_set_zero(&a);
+		return (0);
+	}
 }
 
 void	ft_dot_field(list *tmp, char **field, int count)

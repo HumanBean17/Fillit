@@ -6,7 +6,7 @@
 /*   By: lcrawn <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/18 09:42:16 by lcrawn            #+#    #+#             */
-/*   Updated: 2019/05/22 13:44:04 by lcrawn           ###   ########.fr       */
+/*   Updated: 2019/05/23 17:29:09 by lcrawn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,11 @@ int		ft_fillit(list *head, list *const_head, int count, char **field)
 	if (!(*field))
 		field = ft_create_field(count);
 	tmp = head;
-	/*while (ft_try_set(tmp, field, count) == 1)
-	{
-		ft_print(field, count);
-	}*/
 	//printf("before change %c\n", tmp->letter);
 	//ft_print(field, count);
 	while (tmp)
 	{
-		if (ft_try_set(tmp, field, count) == 0)
+		if (ft_try_set(tmp, field, count, 1) == 0)
 		{
 			//printf("after change %c\n", tmp->letter);
 			//ft_print(field, count);
@@ -36,6 +32,7 @@ int		ft_fillit(list *head, list *const_head, int count, char **field)
 			if (prev == NULL)
 			{
 				//printf("gonna delete\n");
+				ft_try_set(tmp, field, count, 0);
 				//ft_print(field, count);
 				ft_del_matrix(field, count);
 				ft_fillit(const_head, const_head, count + 1, field);
