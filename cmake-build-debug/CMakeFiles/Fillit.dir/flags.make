@@ -6,5 +6,5 @@ C_FLAGS = -g   -std=gnu11
 
 C_DEFINES = 
 
-C_INCLUDES = -I/Users/lcrawn/Fillit/header -I/Users/lcrawn/Fillit/libft 
+C_INCLUDES = -I/Users/lcrawn/Documents/GitHub/Filit/header -I/Users/lcrawn/Documents/GitHub/Filit/libft 
 

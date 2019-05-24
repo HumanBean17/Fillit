@@ -95,7 +95,7 @@ int ft_tetromin_save(int fd)
 	{
 		ft_del_matrix(matrix, 4);
 		//ft_list_print(&head);
-		ft_fillit(head, head, 2, matrix);
+		ft_dfs(&head, 2);
 	}
 	else
 	{
