@@ -1,5 +1,15 @@
 #include "fillit.h"
 
+int 	ft_square(int count)
+{
+	int num;
+
+	num = 1;
+	while (num * num < count * 4)
+		num++;
+	return (num);
+}
+
 int ft_check(char **line)
 {
 	int i;
@@ -94,8 +104,7 @@ int ft_tetromin_save(int fd)
 	if (count != 0 && flag == 1 && matrix[i] == 0)
 	{
 		ft_del_matrix(matrix, 4);
-		//ft_list_print(&head);
-		ft_dfs(&head, 2);
+		ft_dfs(&head, ft_square(count));
 	}
 	else
 	{

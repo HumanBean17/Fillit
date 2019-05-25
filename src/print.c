@@ -2,9 +2,15 @@
 
 void		ft_print(char **matrix, int count)
 {
-	for (int i = 0; i < count; i++)
-		printf("%s\n", matrix[i]);
-	//printf("\n");
+	int i;
+
+	i = 0;
+	while (i < count)
+	{
+		ft_putstr(matrix[i]);
+		ft_putchar('\n');
+		i++;
+	}
 }
 
 void		ft_list_print(list **head)
