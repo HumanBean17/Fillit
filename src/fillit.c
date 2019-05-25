@@ -6,69 +6,64 @@
 /*   By: lcrawn <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/18 09:42:16 by lcrawn            #+#    #+#             */
-/*   Updated: 2019/05/25 15:02:21 by lcrawn           ###   ########.fr       */
+/*   Updated: 2019/05/25 17:25:51 by lcrawn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		ft_fillit(list *head, list *const_head, int *count)
+void	ft_do_op(list **head, char **field, int count)
+{
+	ft_print(field, count);
+	ft_del_matrix(field, count);
+	ft_list_del(head);
+	ft_try_set(*head, field, count, 2);
+}
+
+int		ft_fillit(list *head, list *const_head, int *count, int *i)
 {
 	static char **field;
-	static int 	i;
-	list		*tmp;
-	list		*prev;
 
 	if ((!field) || !(*field))
 		field = ft_create_field(*count);
-	tmp = head;
-	if (i == 50000)
-	{
-		i = 0;
+	if ((*i)++ == 50000)
 		return (1);
-	}
-	i++;
-	while (tmp)
+	while (head)
 	{
-		if (ft_try_set(tmp, field, *count, 1) == 0)
+		if (!(ft_try_set(head, field, *count, 1)))
 		{
-			prev = ft_return_prev(const_head, tmp);
-			if (prev == NULL)
+			if (ft_return_prev(const_head, head) == NULL)
 			{
-				ft_try_set(tmp, field, *count, 0);
-				ft_del_matrix(field, *count);
-				*count += 1;
-				ft_fillit(const_head, const_head, count);
+				ft_try_set(head, field, (*count)++, 0);
+				ft_fillit(const_head, const_head, count, i);
 				return (2);
 			}
 			else
-			{
-				ft_fillit(prev, const_head, count);
-				if (i == 0)
-					return (0);
-				return (3);
-			}
+				ft_fillit(ft_return_prev(const_head, head),
+						const_head, count, i);
+			return (3);
 		}
-		else
-			tmp = tmp->next;
+		head = head->next;
 	}
-	ft_print(field, *count);
-	ft_del_matrix(field, *count);
-	ft_list_del(&const_head);
-	ft_try_set(tmp, field, *count, 2);
+	ft_do_op(&const_head, field, *count);
 	exit(0);
 }
 
 void	ft_dfs(list **head, int count)
 {
 	int i;
+	int c;
 
-	i = 0;
-	while (i != 4)
-		i = ft_fillit(*head, *head, &count);
+	i = 1;
+	c = 0;
+	while (i)
+	{
+		c = 0;
+		ft_fillit(*head, *head, &count, &c);
+	}
 }
 
-int     main(int argc, char **argv)
+int		main(int argc, char **argv)
 {
 	int fd;
 
@@ -78,7 +73,6 @@ int     main(int argc, char **argv)
 		return (0);
 	}
 	fd = open(argv[1], O_RDONLY);
-	//fd = open("/Users/lcrawn/Documents/GitHub/Filit/test.txt", O_RDONLY);
 	ft_tetromin_save(fd);
 	return (0);
 }

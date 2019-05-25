@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   create_list_func.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lcrawn <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/05/25 15:06:39 by lcrawn            #+#    #+#             */
+/*   Updated: 2019/05/25 17:13:26 by lcrawn           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fillit.h"
 
-int 	ft_find_min(const int *ar)
+int			ft_find_min(const int *ar)
 {
 	int i;
 	int min;
@@ -16,7 +28,7 @@ int 	ft_find_min(const int *ar)
 	return (min);
 }
 
-void	ft_fill_elem(list *tmp, char **matrix)
+void		ft_fill_elem(list *tmp, char **matrix)
 {
 	int k;
 	int i;
@@ -43,10 +55,10 @@ void	ft_fill_elem(list *tmp, char **matrix)
 	}
 }
 
-void	ft_swap_2(list **alst)
+void		ft_swap_2(list **alst)
 {
-	int 	i;
-	list 	*tmp;
+	int		i;
+	list	*tmp;
 
 	tmp = *alst;
 	i = 0;
@@ -61,11 +73,11 @@ void	ft_swap_2(list **alst)
 	}
 }
 
-void	ft_swap(list **tmp)
+void		ft_swap(list **tmp)
 {
 	int		i;
-	int 	x_min;
-	int 	y_min;
+	int		x_min;
+	int		y_min;
 
 	i = 0;
 	x_min = ft_find_min((*tmp)->x);
@@ -78,9 +90,9 @@ void	ft_swap(list **tmp)
 	}
 }
 
-void 	ft_push_list(list **alst, int l, char **matrix)
+void		ft_push_list(list **alst, int l, char **matrix)
 {
-	list 	*tmp;
+	list	*tmp;
 
 	tmp = *alst;
 	if (!tmp)
@@ -100,7 +112,7 @@ void 	ft_push_list(list **alst, int l, char **matrix)
 	ft_swap_2(&(tmp->next));
 }
 
-void	ft_glist_del(g_list **head)
+void		ft_glist_del(g_list **head)
 {
 	g_list *cur;
 	g_list *tmp;
@@ -119,7 +131,7 @@ void	ft_glist_del(g_list **head)
 	}
 }
 
-void	ft_list_del(list **head)
+void		ft_list_del(list **head)
 {
 	list *cur;
 	list *tmp;

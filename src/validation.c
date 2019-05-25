@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   validation.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lcrawn <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/05/25 15:06:19 by lcrawn            #+#    #+#             */
+/*   Updated: 2019/05/25 17:14:34 by lcrawn           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fillit.h"
 
 int 	ft_square(int count)
@@ -103,6 +115,7 @@ int ft_tetromin_save(int fd)
 	}
 	if (count != 0 && flag == 1 && matrix[i] == 0)
 	{
+		//ft_list_print(&head);
 		ft_del_matrix(matrix, 4);
 		ft_dfs(&head, ft_square(count));
 	}
