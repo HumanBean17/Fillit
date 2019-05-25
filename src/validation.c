@@ -63,6 +63,7 @@ int ft_tetromin_save(int fd)
 	int		count;
 	int     i;
 	int 	flag;
+	char 	*line;
 	char    **matrix;
 	list	*head;
 
@@ -70,7 +71,7 @@ int ft_tetromin_save(int fd)
 	i = 0;
 	count = 0;
 	head = NULL;
-	if (!(matrix = (char **)malloc(sizeof(char *) * 4 + 1)))
+	if (!(matrix = ft_create_matrix(4)))
 		return (0);
 	while (get_next_line(fd, &matrix[i]))
 	{
@@ -80,25 +81,24 @@ int ft_tetromin_save(int fd)
 			ft_putstr("error\n");
 			return (0);
 		}
-		matrix[i][ft_strlen(matrix[i])] = '\n';
-		matrix[i][ft_strlen(matrix[i]) + 1] = '\0';
 		i++;
 		if (i > 3)
 		{
-			flag = 1;
-			get_next_line(fd, &matrix[i]);
-			if (matrix[i][0] != 0)
+			get_next_line(fd, &line);
+			if (line[0] != 0)
 			{
 				ft_putstr("error\n");
 				return (0);
 			}
+			ft_strdel(&line);
+			flag = 1;
 			if (ft_check(matrix) == 1)
 				return (0);
 			ft_push_list(&head, count, matrix);
 			i = 0;
 			count++;
 			ft_del_matrix(matrix, 4);
-			matrix = (char **)malloc(sizeof(char *) * 4 + 1);
+			matrix = ft_create_matrix(4);
 		}
 	}
 	if (count != 0 && flag == 1 && matrix[i] == 0)

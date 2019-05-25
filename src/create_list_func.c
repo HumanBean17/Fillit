@@ -16,22 +16,6 @@ int 	ft_find_min(const int *ar)
 	return (min);
 }
 
-int 	ft_find_max(const int *ar)
-{
-	int i;
-	int max;
-
-	i = 0;
-	max = ar[0];
-	while (i < 4)
-	{
-		if (ar[i] > max)
-			max = ar[i];
-		i++;
-	}
-	return (max);
-}
-
 void	ft_fill_elem(list *tmp, char **matrix)
 {
 	int k;
@@ -61,20 +45,11 @@ void	ft_fill_elem(list *tmp, char **matrix)
 
 void	ft_swap_2(list **alst)
 {
-	int 	flag;
 	int 	i;
 	list 	*tmp;
 
 	tmp = *alst;
 	i = 0;
-	flag = 0;
-	/*while (i < 4)
-	{
-		if ((tmp->x)[i] == 0 && (tmp->y)[i] == 0)
-			flag = 1;
-		i++;
-	}
-	i = 0;*/
 	while ((tmp->x)[0] != 0)
 	{
 		while (i < 4)
@@ -123,6 +98,48 @@ void 	ft_push_list(list **alst, int l, char **matrix)
 	ft_fill_elem(tmp->next, matrix);
 	ft_swap(&(tmp->next));
 	ft_swap_2(&(tmp->next));
+}
+
+void	ft_glist_del(g_list **head)
+{
+	g_list *cur;
+	g_list *tmp;
+
+	tmp = *head;
+	if (tmp)
+	{
+		while (tmp)
+		{
+			tmp = (*head)->next;
+			cur = *head;
+			(*head) = (*head)->next;
+			free(cur);
+			cur = NULL;
+		}
+	}
+}
+
+void	ft_list_del(list **head)
+{
+	list *cur;
+	list *tmp;
+
+	tmp = *head;
+	if (tmp)
+	{
+		while (tmp)
+		{
+			free(tmp->x);
+			tmp->x = NULL;
+			free(tmp->y);
+			tmp->y = NULL;
+			tmp = (*head)->next;
+			cur = *head;
+			(*head) = (*head)->next;
+			free(cur);
+			cur = NULL;
+		}
+	}
 }
 
 list		*ft_new_elem(int l)

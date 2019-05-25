@@ -36,11 +36,14 @@ void	ft_fill_back(list *alst, char **field, int count)
 
 int 	ft_are_dots(list *alst, char **field, int i, int j)
 {
-	//ft_list_print(&alst);
-	if ((field[(alst->y)[0] + i][(alst->x)[0] + j] == '.' || field[(alst->y)[0] + i][(alst->x)[0] + j] == alst->letter) &&
-		(field[(alst->y)[1] + i][(alst->x)[1] + j] == '.' || field[(alst->y)[1] + i][(alst->x)[1] + j] == alst->letter) &&
-		(field[(alst->y)[2] + i][(alst->x)[2] + j] == '.' || field[(alst->y)[2] + i][(alst->x)[2] + j] == alst->letter) &&
-		(field[(alst->y)[3] + i][(alst->x)[3] + j] == '.' || field[(alst->y)[3] + i][(alst->x)[3] + j] == alst->letter))
+	if ((field[(alst->y)[0] + i][(alst->x)[0] + j] == '.' ||
+	field[(alst->y)[0] + i][(alst->x)[0] + j] == alst->letter) &&
+		(field[(alst->y)[1] + i][(alst->x)[1] + j] == '.' ||
+		field[(alst->y)[1] + i][(alst->x)[1] + j] == alst->letter) &&
+		(field[(alst->y)[2] + i][(alst->x)[2] + j] == '.' ||
+		field[(alst->y)[2] + i][(alst->x)[2] + j] == alst->letter) &&
+		(field[(alst->y)[3] + i][(alst->x)[3] + j] == '.' ||
+		field[(alst->y)[3] + i][(alst->x)[3] + j] == alst->letter))
 		return (1);
 	return (0);
 }
@@ -123,12 +126,25 @@ void	ft_set_zero(g_list **alst)
 	g_list *tmp;
 
 	tmp = *alst;
-	if (tmp) {
-		while (tmp) {
+	if (tmp)
+	{
+		while (tmp)
+		{
 			(tmp->a)[0] = 0;
 			(tmp->a)[1] = 0;
 			tmp = tmp->next;
 		}
+	}
+}
+
+void	ft_change_coords(g_list **tmp, int i, int j, int count)
+{
+	if (j + 1 < count)
+		((*tmp)->a)[1] += 1;
+	else if (i + 1 < count)
+	{
+		((*tmp)->a)[1] = 0;
+		((*tmp)->a)[0] += 1;
 	}
 }
 
@@ -147,25 +163,19 @@ int		ft_try_set(list *alst, char **field, int count, int flag)
 		tmp = ft_find_list(&a, alst->letter);
 		i = (tmp->a)[0];
 		j = (tmp->a)[1];
-		//printf("I = %d J = %d\n", i, j);
-		while (i < count) {
-			while (j < count) {
+		while (i < count)
+		{
+			while (j < count)
+			{
 				if ((field[i][j] == '.' || field[i][j] == alst->letter) && ft_fit(alst, count, i, j) == 1 &&
 					ft_are_dots(alst, field, i, j) == 1)
 				{
-					//printf("i = %d  j = %d\n", i, j);
-					//printf("OK\n");
 					ft_set(alst, field, i, j);
 					ft_dot_field(alst, field, count);
 					ft_fill_back(alst, field, count);
 					(tmp->a)[0] = i;
 					(tmp->a)[1] = j;
-					if (j + 1 < count)
-						(tmp->a)[1] += 1;
-					else if (i + 1 < count) {
-						(tmp->a)[1] = 0;
-						(tmp->a)[0] += 1;
-					}
+					ft_change_coords(&tmp, i, j, count);
 					return (1);
 				}
 				j++;
@@ -176,12 +186,16 @@ int		ft_try_set(list *alst, char **field, int count, int flag)
 		ft_set_dots(alst, field, count);
 		(tmp->a)[0] = 0;
 		(tmp->a)[1] = 0;
-		//printf("return 0\n");
+		return (0);
+	}
+	else if (flag == 0)
+	{
+		ft_set_zero(&a);
 		return (0);
 	}
 	else
 	{
-		ft_set_zero(&a);
+		ft_glist_del(&a);
 		return (0);
 	}
 }
@@ -221,7 +235,6 @@ list	*ft_return_prev(list *alst, list *to_find)
 		return (NULL);
 	while (tmp && ((tmp->next)->letter != to_find->letter))
 		tmp = tmp->next;
-	//printf("\n");
 	return (tmp);
 }
 
@@ -238,7 +251,7 @@ void	ft_del_matrix(char **matrix, int count)
 			i++;
 		}
 		free(matrix);
-		*matrix = NULL;
+		matrix = NULL;
 	}
 }
 
@@ -248,7 +261,7 @@ char	**ft_create_field(int count)
 	int 	i;
 	int 	j;
 
-	field = (char **) malloc(sizeof(char *) * count);
+	field = ft_create_matrix(count);
 	i = 0;
 	while (i < count)
 	{
@@ -262,4 +275,24 @@ char	**ft_create_field(int count)
 		i++;
 	}
 	return (field);
+}
+
+char 	**ft_create_matrix(int size)
+{
+	int 	i;
+	char 	**matrix;
+
+	i = 0;
+	matrix = NULL;
+	matrix = (char **)malloc(sizeof(char*) * size);
+	if (matrix)
+	{
+		while (i < size)
+		{
+			matrix[i] = NULL;
+			i++;
+		}
+		return (matrix);
+	}
+	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: lcrawn <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/18 09:42:16 by lcrawn            #+#    #+#             */
-/*   Updated: 2019/05/25 13:07:16 by lcrawn           ###   ########.fr       */
+/*   Updated: 2019/05/25 15:02:21 by lcrawn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		ft_fillit(list *head, list *const_head, int *count)
 	if ((!field) || !(*field))
 		field = ft_create_field(*count);
 	tmp = head;
-	if (i == 70000)
+	if (i == 50000)
 	{
 		i = 0;
 		return (1);
@@ -53,6 +53,9 @@ int		ft_fillit(list *head, list *const_head, int *count)
 			tmp = tmp->next;
 	}
 	ft_print(field, *count);
+	ft_del_matrix(field, *count);
+	ft_list_del(&const_head);
+	ft_try_set(tmp, field, *count, 2);
 	exit(0);
 }
 
@@ -75,6 +78,7 @@ int     main(int argc, char **argv)
 		return (0);
 	}
 	fd = open(argv[1], O_RDONLY);
+	//fd = open("/Users/lcrawn/Documents/GitHub/Filit/test.txt", O_RDONLY);
 	ft_tetromin_save(fd);
 	return (0);
 }

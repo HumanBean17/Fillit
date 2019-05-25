@@ -6,7 +6,7 @@
 /*   By: lcrawn <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/18 09:39:51 by lcrawn            #+#    #+#             */
-/*   Updated: 2019/05/25 13:09:38 by lcrawn           ###   ########.fr       */
+/*   Updated: 2019/05/25 13:59:52 by lcrawn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@ typedef struct 	f_list
 	struct f_list 	*next;
 }				list;
 
+void			ft_glist_del(g_list **head);
+void			ft_list_del(list **head);
+char 			**ft_create_matrix(int size);
 int 			ft_square(int count);
 void			ft_dfs(list **head, int count);
 g_list			*ft_find_list(g_list **head, char to_find);
