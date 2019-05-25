@@ -6,7 +6,7 @@
 /*   By: lcrawn <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/18 09:39:51 by lcrawn            #+#    #+#             */
-/*   Updated: 2019/05/25 13:59:52 by lcrawn           ###   ########.fr       */
+/*   Updated: 2019/05/25 17:20:36 by lcrawn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void			ft_list_del(list **head);
 char 			**ft_create_matrix(int size);
 int 			ft_square(int count);
 void			ft_dfs(list **head, int count);
-g_list			*ft_find_list(g_list **head, char to_find);
+g_list			*ft_find_list(g_list **head, char to_find, void (*f)(g_list **, char to_push));
 void			ft_push_list_2(g_list **head, char to_push);
 void			ft_fill_back(list *alst, char **field, int count);
 int				ft_fit(list *alst, int count, int i, int j);
@@ -44,7 +44,7 @@ int				ft_try_set(list *alst, char **field, int count, int flag);
 int 			ft_are_dots(list *alst, char **field, int i, int j);
 void			ft_dot_field(list *tmp, char **field, int count);
 list			*ft_return_prev(list *alst, list *to_find);
-int				ft_fillit(list *head, list *const_head, int *count);
+int				ft_fillit(list *head, list *const_head, int *count, int *i);
 int 			ft_tetromin_save(int fd);
 void			ft_print(char **matrix, int count);
 void			ft_list_print(list **head);
@@ -56,6 +56,6 @@ void			ft_swap(list **tmp);
 void 			ft_push_list(list **alst, int l, char **matrix);
 void			ft_del_matrix(char **matrix, int count);
 char			**ft_create_field(int count);
-int 			ft_check(char **line);
+void	 		ft_check(char **line);
 
 #endif

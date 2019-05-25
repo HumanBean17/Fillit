@@ -6,7 +6,7 @@
 /*   By: lcrawn <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/25 15:06:28 by lcrawn            #+#    #+#             */
-/*   Updated: 2019/05/25 16:38:34 by lcrawn           ###   ########.fr       */
+/*   Updated: 2019/05/25 17:33:24 by lcrawn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,7 +141,7 @@ void		ft_set_dots(g_list **alst, list *tmp, char **field, int count)
 	}
 }
 
-void		ft_set_zero(g_list **alst)
+void		ft_set_zero(g_list **alst, char **field, int count)
 {
 	g_list *tmp;
 
@@ -155,6 +155,7 @@ void		ft_set_zero(g_list **alst)
 			tmp = tmp->next;
 		}
 	}
+	ft_del_matrix(field, count);
 }
 
 void		ft_change_coords(g_list **tmp, int i, int j, int count)
@@ -177,8 +178,7 @@ int			ft_try_set(list *alst, char **field, int count, int flag)
 	int				i;
 	int				j;
 
-	flag == 0 ? ft_del_matrix(field, count) : 0;
-	flag == 0 ? ft_set_zero(&a) : 0;
+	flag == 0 ? ft_set_zero(&a, field, count) : 0;
 	flag == 2 ? ft_glist_del(&a) : 0;
 	if (flag != 1)
 		return (0);
