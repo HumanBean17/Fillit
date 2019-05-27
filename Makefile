@@ -17,7 +17,7 @@ HDR = header/
 LIB = libft/libft.a
 
 all:
-	gcc -Wall -Wextra -Werror -o fillit -I $(HDR) $(SRC) -L. $(LIB)
+	gcc -o fillit -I $(HDR) $(SRC) -L. $(LIB)
 
 lib:
 	cd ./libft && make && make clean

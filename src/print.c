@@ -25,9 +25,9 @@ void		ft_print(char **matrix, int count)
 	}
 }
 
-void		ft_list_print(list **head)
+void		ft_list_print(t_flist **head)
 {
-	list *tmp;
+	t_flist *tmp;
 
 	tmp = *head;
 	while (tmp)

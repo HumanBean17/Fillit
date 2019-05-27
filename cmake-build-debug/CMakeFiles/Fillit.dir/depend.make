@@ -209,6 +209,11 @@ CMakeFiles/Fillit.dir/src/get_next_line.c.o: ../header/get_next_line.h
 CMakeFiles/Fillit.dir/src/get_next_line.c.o: ../header/libft.h
 CMakeFiles/Fillit.dir/src/get_next_line.c.o: ../src/get_next_line.c
 
+CMakeFiles/Fillit.dir/src/matrix_func.c.o: ../header/fillit.h
+CMakeFiles/Fillit.dir/src/matrix_func.c.o: ../header/get_next_line.h
+CMakeFiles/Fillit.dir/src/matrix_func.c.o: ../header/libft.h
+CMakeFiles/Fillit.dir/src/matrix_func.c.o: ../src/matrix_func.c
+
 CMakeFiles/Fillit.dir/src/print.c.o: ../header/fillit.h
 CMakeFiles/Fillit.dir/src/print.c.o: ../header/get_next_line.h
 CMakeFiles/Fillit.dir/src/print.c.o: ../header/libft.h

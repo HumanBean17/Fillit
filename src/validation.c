@@ -6,7 +6,7 @@
 /*   By: lcrawn <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/25 15:06:19 by lcrawn            #+#    #+#             */
-/*   Updated: 2019/05/25 17:43:47 by lcrawn           ###   ########.fr       */
+/*   Updated: 2019/05/27 14:45:29 by lcrawn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,19 @@ int 	ft_square(int count)
 	return (num);
 }
 
+void		ft_validation(char **line, int i, int j, int *c)
+{
+	if (j != 3 && line[i][j + 1] != '.')
+		line[i][j]++;
+	if (j != 0 && line[i][j - 1] != '.' )
+		line[i][j]++;
+	if (i != 3 && line[i + 1][j] != '.')
+		line[i][j]++;
+	if (i != 0 && line[i - 1][j] != '.')
+		line[i][j]++;
+	*c += (int)line[i][j] - 48;
+}
+
 void		ft_check(char **line)
 {
 	int i;
@@ -45,15 +58,7 @@ void		ft_check(char **line)
 			else if (line[i][j] == '#')
 			{
 				line[i][j] = '0';
-				if (j != 3 && line[i][j + 1] != '.')
-					line[i][j]++;
-				if (j != 0 && line[i][j - 1] != '.' )
-					line[i][j]++;
-				if (i != 3 && line[i + 1][j] != '.')
-					line[i][j]++;
-				if (i != 0 && line[i - 1][j] != '.')
-					line[i][j]++;
-				c += (int)line[i][j] - 48;
+				ft_validation(line, i, j, &c);
 			}
 			else if ((line[i][j] == '0' || line[i][j] > '3') && line[i][j] != '.')
 				ft_print_error();
@@ -72,15 +77,20 @@ void	ft_check_2(int fd)
 	ft_strdel(&line);
 }
 
-int 	ft_tetromin_save(int fd)
+int 	ft_check_3(t_flist **head, char **matrix, int fd, int *count)
 {
-	int		count;
-	int     i;
-	char    **matrix;
-	list	*head;
+	ft_check_2(fd);
+	ft_check(matrix);
+	ft_push_list(head, *count, matrix);
+	(*count)++;
+	return (0);
+}
 
-	i = 0;
-	count = 0;
+int 	ft_tetromin_save(int fd, int count, int i)
+{
+	char    **matrix;
+	t_flist	*head;
+
 	head = NULL;
 	if (!(matrix = ft_create_matrix(4)))
 		return (0);
@@ -88,14 +98,9 @@ int 	ft_tetromin_save(int fd)
 	{
 		if (ft_strlen(matrix[i]) != 4 || count > 25)
 			ft_print_error();
-		i++;
-		if (i > 3)
+		if (++i > 3)
 		{
-			ft_check_2(fd);
-			ft_check(matrix);
-			ft_push_list(&head, count, matrix);
-			i = 0;
-			count++;
+			i = ft_check_3(&head, matrix, fd, &count);
 			ft_del_matrix(matrix, 4);
 			matrix = ft_create_matrix(4);
 		}
@@ -105,7 +110,6 @@ int 	ft_tetromin_save(int fd)
 		ft_del_matrix(matrix, 4);
 		ft_dfs(&head, ft_square(count));
 	}
-	else
-		ft_print_error();
+	ft_print_error();
 	return (0);
 }

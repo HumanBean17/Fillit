@@ -78,4 +78,4 @@ add_executable(Fillit
         src/create_list_func.c
         src/validation.c
         src/additional.c
-        src/get_next_line.c src/validation.c src/additional.c src/create_list_func.c src/print.c)
+        src/get_next_line.c src/validation.c src/additional.c src/create_list_func.c src/print.c src/matrix_func.c)

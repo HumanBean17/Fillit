@@ -297,6 +297,9 @@
 		<Unit filename="/Users/lcrawn/Documents/GitHub/Filit/src/get_next_line.c">
 			<Option target="Fillit"/>
 		</Unit>
+		<Unit filename="/Users/lcrawn/Documents/GitHub/Filit/src/matrix_func.c">
+			<Option target="Fillit"/>
+		</Unit>
 		<Unit filename="/Users/lcrawn/Documents/GitHub/Filit/src/print.c">
 			<Option target="Fillit"/>
 		</Unit>

@@ -6,7 +6,7 @@
 /*   By: lcrawn <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/25 15:06:39 by lcrawn            #+#    #+#             */
-/*   Updated: 2019/05/25 17:13:26 by lcrawn           ###   ########.fr       */
+/*   Updated: 2019/05/27 14:49:03 by lcrawn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int			ft_find_min(const int *ar)
 	return (min);
 }
 
-void		ft_fill_elem(list *tmp, char **matrix)
+void		ft_fill_elem(t_flist *tmp, char **matrix)
 {
 	int k;
 	int i;
@@ -55,10 +55,10 @@ void		ft_fill_elem(list *tmp, char **matrix)
 	}
 }
 
-void		ft_swap_2(list **alst)
+void		ft_swap_2(t_flist **alst)
 {
 	int		i;
-	list	*tmp;
+	t_flist	*tmp;
 
 	tmp = *alst;
 	i = 0;
@@ -73,7 +73,7 @@ void		ft_swap_2(list **alst)
 	}
 }
 
-void		ft_swap(list **tmp)
+void		ft_swap(t_flist **tmp)
 {
 	int		i;
 	int		x_min;
@@ -90,9 +90,9 @@ void		ft_swap(list **tmp)
 	}
 }
 
-void		ft_push_list(list **alst, int l, char **matrix)
+void		ft_push_list(t_flist **alst, int l, char **matrix)
 {
-	list	*tmp;
+	t_flist	*tmp;
 
 	tmp = *alst;
 	if (!tmp)
@@ -112,10 +112,10 @@ void		ft_push_list(list **alst, int l, char **matrix)
 	ft_swap_2(&(tmp->next));
 }
 
-void		ft_glist_del(g_list **head)
+void		ft_glist_del(t_clist **head)
 {
-	g_list *cur;
-	g_list *tmp;
+	t_clist *cur;
+	t_clist *tmp;
 
 	tmp = *head;
 	if (tmp)
@@ -131,10 +131,10 @@ void		ft_glist_del(g_list **head)
 	}
 }
 
-void		ft_list_del(list **head)
+void		ft_list_del(t_flist **head)
 {
-	list *cur;
-	list *tmp;
+	t_flist *cur;
+	t_flist *tmp;
 
 	tmp = *head;
 	if (tmp)
@@ -154,11 +154,11 @@ void		ft_list_del(list **head)
 	}
 }
 
-list		*ft_new_elem(int l)
+t_flist		*ft_new_elem(int l)
 {
-	list *tmp;
+	t_flist *tmp;
 
-	tmp = (list *)malloc(sizeof(list));
+	tmp = (t_flist *)malloc(sizeof(t_flist));
 	if (tmp)
 	{
 		tmp->letter = (char)(l + 65);

@@ -68,6 +68,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Fillit.dir/src/additional.c.o"
   "CMakeFiles/Fillit.dir/src/get_next_line.c.o"
   "CMakeFiles/Fillit.dir/src/print.c.o"
+  "CMakeFiles/Fillit.dir/src/matrix_func.c.o"
   "Fillit.pdb"
   "Fillit"
 )

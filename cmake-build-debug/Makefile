@@ -1932,6 +1932,33 @@ src/get_next_line.c.s:
 	$(MAKE) -f CMakeFiles/Fillit.dir/build.make CMakeFiles/Fillit.dir/src/get_next_line.c.s
 .PHONY : src/get_next_line.c.s
 
+src/matrix_func.o: src/matrix_func.c.o
+
+.PHONY : src/matrix_func.o
+
+# target to build an object file
+src/matrix_func.c.o:
+	$(MAKE) -f CMakeFiles/Fillit.dir/build.make CMakeFiles/Fillit.dir/src/matrix_func.c.o
+.PHONY : src/matrix_func.c.o
+
+src/matrix_func.i: src/matrix_func.c.i
+
+.PHONY : src/matrix_func.i
+
+# target to preprocess a source file
+src/matrix_func.c.i:
+	$(MAKE) -f CMakeFiles/Fillit.dir/build.make CMakeFiles/Fillit.dir/src/matrix_func.c.i
+.PHONY : src/matrix_func.c.i
+
+src/matrix_func.s: src/matrix_func.c.s
+
+.PHONY : src/matrix_func.s
+
+# target to generate assembly for a file
+src/matrix_func.c.s:
+	$(MAKE) -f CMakeFiles/Fillit.dir/build.make CMakeFiles/Fillit.dir/src/matrix_func.c.s
+.PHONY : src/matrix_func.c.s
+
 src/print.o: src/print.c.o
 
 .PHONY : src/print.o
@@ -2196,6 +2223,9 @@ help:
 	@echo "... src/get_next_line.o"
 	@echo "... src/get_next_line.i"
 	@echo "... src/get_next_line.s"
+	@echo "... src/matrix_func.o"
+	@echo "... src/matrix_func.i"
+	@echo "... src/matrix_func.s"
 	@echo "... src/print.o"
 	@echo "... src/print.i"
 	@echo "... src/print.s"

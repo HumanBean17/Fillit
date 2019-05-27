@@ -6,13 +6,13 @@
 /*   By: lcrawn <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/18 09:42:16 by lcrawn            #+#    #+#             */
-/*   Updated: 2019/05/25 17:25:51 by lcrawn           ###   ########.fr       */
+/*   Updated: 2019/05/27 14:45:05 by lcrawn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	ft_do_op(list **head, char **field, int count)
+void	ft_do_op(t_flist **head, char **field, int count)
 {
 	ft_print(field, count);
 	ft_del_matrix(field, count);
@@ -20,7 +20,7 @@ void	ft_do_op(list **head, char **field, int count)
 	ft_try_set(*head, field, count, 2);
 }
 
-int		ft_fillit(list *head, list *const_head, int *count, int *i)
+int		ft_fillit(t_flist *head, t_flist *const_head, int *count, int *i)
 {
 	static char **field;
 
@@ -49,7 +49,7 @@ int		ft_fillit(list *head, list *const_head, int *count, int *i)
 	exit(0);
 }
 
-void	ft_dfs(list **head, int count)
+void	ft_dfs(t_flist **head, int count)
 {
 	int i;
 	int c;
@@ -66,13 +66,15 @@ void	ft_dfs(list **head, int count)
 int		main(int argc, char **argv)
 {
 	int fd;
+	int count;
 
+	count = 0;
 	if (argc != 2)
 	{
 		ft_putstr("error\n");
 		return (0);
 	}
 	fd = open(argv[1], O_RDONLY);
-	ft_tetromin_save(fd);
+	ft_tetromin_save(fd, count, count);
 	return (0);
 }
