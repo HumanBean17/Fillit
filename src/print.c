@@ -6,7 +6,7 @@
 /*   By: lcrawn <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/25 15:06:33 by lcrawn            #+#    #+#             */
-/*   Updated: 2019/05/25 15:06:42 by lcrawn           ###   ########.fr       */
+/*   Updated: 2019/05/27 15:22:08 by croxane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void		ft_print(char **matrix, int count)
 {
-	int i;
+	int		i;
 
 	i = 0;
 	while (i < count)
@@ -25,20 +25,8 @@ void		ft_print(char **matrix, int count)
 	}
 }
 
-void		ft_list_print(t_flist **head)
+void		ft_print_error(void)
 {
-	t_flist *tmp;
-
-	tmp = *head;
-	while (tmp)
-	{
-		printf("%c\nx = ", tmp->letter);
-		for (int i = 0; i < 4; i++)
-			printf("%d ", tmp->x[i]);
-		printf("\ny = ");
-		for (int i = 0; i < 4; i++)
-			printf("%d ", tmp->y[i]);
-		printf("\n");
-		tmp = tmp->next;
-	}
+	ft_putstr("error\n");
+	exit(1);
 }

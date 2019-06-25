@@ -6,23 +6,42 @@
 #    By: lcrawn <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/18 09:40:57 by lcrawn            #+#    #+#              #
-#    Updated: 2019/05/25 15:17:36 by lcrawn           ###   ########.fr        #
+#    Updated: 2019/05/27 16:01:52 by lcrawn           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = src/*.c
+SRC = src/additional.c \
+      src/checks.c \
+      src/create_list_func.c \
+      src/dots_check.c \
+      src/main.c \
+      src/get_next_line.c \
+      src/lists_and_not_only.c \
+      src/matrix_func.c \
+      src/print.c \
+      src/swaps.c \
+      src/validation.c
 
 HDR = header/
 
-LIB = libft/libft.a
+LIB = libft/
 
-all:
-	gcc -o fillit -I $(HDR) $(SRC) -L. $(LIB)
+LIBF_A = libft/libft.a
 
-lib:
-	cd ./libft && make && make clean
+NAME = fillit
+
+all: $(NAME)
+
+$(NAME):
+	make -C $(LIB)
+	gcc -Wall -Wextra -Werror $(SRC) -I $(HDR) -o $(NAME) -L. $(LIBF_A)
 
 clean:
-	rm -f a.out
+	rm -f libft/*.o
+	make -C $(LIB) clean
 
-re: clean all
+fclean: clean
+	rm -f fillit
+	make -C $(LIB) fclean
+
+re: fclean all

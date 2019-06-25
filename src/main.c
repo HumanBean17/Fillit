@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.c                                           :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lcrawn <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: croxane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/18 09:42:16 by lcrawn            #+#    #+#             */
-/*   Updated: 2019/05/27 14:45:05 by lcrawn           ###   ########.fr       */
+/*   Created: 2019/05/28 12:58:43 by croxane           #+#    #+#             */
+/*   Updated: 2019/05/31 17:37:15 by croxane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,15 +66,17 @@ void	ft_dfs(t_flist **head, int count)
 int		main(int argc, char **argv)
 {
 	int fd;
+	int fd_n;
 	int count;
 
 	count = 0;
 	if (argc != 2)
 	{
-		ft_putstr("error\n");
+		ft_putstr("usage: ./fillit source_file\n");
 		return (0);
 	}
 	fd = open(argv[1], O_RDONLY);
-	ft_tetromin_save(fd, count, count);
+	fd_n = open(argv[1], O_RDONLY);
+	ft_tetromin_save(fd_n, fd, count, count);
 	return (0);
 }
