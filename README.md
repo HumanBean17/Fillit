@@ -12,22 +12,4 @@ Usage:
 
 File with tetraminos example:
 
-...#
-...#
-...#
-...#
-
-####
-....
-....
-....
-
-##..
-.##.
-....
-....
-
-..##
-..##
-....
-....\n
+![alt_text](https://pp.userapi.com/c855724/v855724640/aabdd/o53nibzjP8w.jpg)
